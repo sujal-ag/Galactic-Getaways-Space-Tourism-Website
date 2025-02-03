@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Space tourism website</title>
+
+    <style>
+      body {
+        background-image: url(./assets/technology/background-technology-desktop.jpg);
+        background-size: cover;
+        color: white;
+      }
+      p {
+        margin: 0px;
+      }
+      #content {
+        width: 500px;
+        position: relative;
+        float: left;
+        left: 380px;
+        top: 200px;
+      }
+      #content > p {
+        font-family: "Bellefair", serif;
+      }
+      #heading {
+        position: absolute;
+        top: 100px;
+        left: 180px;
+        font-size: 28px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        color: rgba(255, 255, 255, 0.858);
+      }
+      #nav-vehicle {
+        position: relative;
+        margin: 0px;
+        display: inline-block;
+        left: -220px;
+        top: 200px;
+        width: 60px;
+      }
+      button {
+        display: inline;
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.589);
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.589);
+        font-size: larger;
+        cursor: pointer;
+      }
+      #image {
+        float: right;
+        position: relative;
+        top: 70px;
+        right: 80px;
+        opacity: 0.7;
+      }
+      #tech {
+        border-bottom: 3px rgb(255, 255, 255) solid;
+      }
+      .recent {
+        background-color: white;
+        color: black;
+      }
+      .hovered {
+        border: 1.5px solid white;
+      }
+    </style>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="nav">
+      <nav>
+        <a id="home" class="anchor"><b>00</b> Home</a>&nbsp;&nbsp;&nbsp;
+        <a id="destination" class="anchor"><b>01</b> Destination</a
+        >&nbsp;&nbsp;&nbsp;
+        <a id="crew" class="anchor"><b>02</b> Crew</a>&nbsp;&nbsp;&nbsp;
+        <a id="tech" class="anchor"><b>03</b> Technology</a>
+      </nav>
+    </div>
+
+    <div>
+      <p id="heading">
+        <span style="color: rgba(214, 211, 211, 0.458)">03</span>&nbsp;SPACE
+        LAUNCH 101
+      </p>
+    </div>
+
+    <div id="nav-vehicle">
+      <button class="btn recent" id="btn1">1</button><br />
+      <button class="btn" id="btn2">2</button><br />
+      <button class="btn" id="btn3">3</button><br />
+    </div>
+
+    <div id="content">
+      <p
+        id="term"
+        style="
+          font-size: 32px;
+          color: rgba(255, 255, 255, 0.608);
+          text-transform: uppercase;
+        "
+      >
+        The terminology...
+      </p>
+      <p
+        id="vehicle"
+        style="font-size: 56px; margin: 10px 0px; text-transform: uppercase"
+      >
+        Launch vehicle
+      </p>
+      <p
+        id="description"
+        style="
+          font-size: 18px;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+            sans-serif;
+          font-weight: lighter;
+          color: rgba(192, 209, 219, 0.859);
+          line-height: 25px;
+        "
+      >
+        A launch vehicle or carrier rocket is a rocket-propelled vehicle used to
+        carry a payload from Earth's surface to space, usually to Earth orbit or
+        beyond. Our WEB-X carrier rocket is the most powerful in operation.
+        Standing 150 metres tall, it's quite an awe-inspiring sight on the
+        launch pad!
+      </p>
+    </div>
+
+    <div id="image">
+      <img
+        src="./assets/technology/image-launch-vehicle-portrait.jpg"
+        alt="image-launch-vehicle-portrait"
+      />
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./index.js"></script>
+    <script>
+      $(".btn").hover(
+        function () {
+          $(this).addClass("hovered");
+        },
+        function () {
+          $(this).removeClass("hovered");
+        }
+      );
+
+      $(".btn").click(function () {
+        btnid = "btn" + $(this).text();
+        $("button").removeClass("recent");
+        $(this).addClass("recent");
+        function content(vehicle, description, image) {
+          $("#vehicle").text(vehicle);
+          $("#description").text(description);
+          $("img").attr({ src: image });
+        }
+
+        if (btnid === "btn1") {
+          content(
+            "Launch vehicle",
+            "A launch vehicle or carrier rocket is a rocket-propelled vehicle used tocarry a payload from Earth's surface to space, usually to Earth orbit orbeyond. Our WEB-X carrier rocket is the most powerful in operation.Standing 150 metres tall, it's quite an awe-inspiring sight on thelaunch pad!",
+            "./assets/technology/image-launch-vehicle-portrait.jpg"
+          );
+        } else if (btnid === "btn2") {
+          content(
+            "Spaceport",
+            "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch",
+            "./assets/technology/image-spaceport-portrait.jpg"
+          );
+        } else {
+          content(
+            "space capsule",
+            "A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained.",
+            "./assets/technology/image-space-capsule-portrait.jpg"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

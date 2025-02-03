@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Space tourism website</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-image: url(./assets/crew/background-crew-desktop.jpg);
+        background-size: cover;
+        font-family: "Bellefair", serif;
+        color: white;
+      }
+      #content {
+        /* height: 100%; */
+        width: 500px;
+        margin-top: 150px;
+        margin-left: 300px;
+        float: left;
+        /* min-height: 500px; */
+      }
+      .image1 {
+        margin-top: 50px;
+        margin-left: 900px;
+      }
+      .fade-img {
+        -webkit-mask-image: linear-gradient(#000, rgb(0, 0, 0, 0.4));
+        mask-image: linear-gradient(#000, rgb(0, 0, 0, 0.4));
+      }
+      .btn {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: rgb(155, 152, 152);
+        border: 0;
+      }
+      .white-btn {
+        background-color: white;
+      }
+      .ansari {
+        margin-top: 120px;
+        margin-left: 900px;
+      }
+      #crew {
+        border-bottom: 3px rgb(255, 255, 255) solid;
+      }
+      #heading {
+        position: absolute;
+        top: 100px; /* Adjust as needed */
+        left: 180px; /* Align it properly */
+        font-size: 28px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        color: rgba(255, 255, 255, 0.858);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav" style="left: 700px">
+      <nav>
+        <a href="index.html" id="home" class="anchor"><b>00</b> Home</a
+        >&nbsp;&nbsp;&nbsp;
+        <a href="./destination-moon.html" id="destination" class="anchor"
+          ><b>01</b> Destination</a
+        >&nbsp;&nbsp;&nbsp;
+        <a href="./crew-commander.html" id="crew" class="anchor"
+          ><b>02</b> Crew</a
+        >&nbsp;&nbsp;&nbsp;
+        <a href="./technology-vehicle.html" id="tech" class="anchor"
+          ><b>03</b> Technology</a
+        >
+      </nav>
+    </div>
+
+    <!-- 02 Meet your crew -->
+    <div>
+      <p id="heading">
+        <span style="color: rgba(214, 211, 211, 0.458)">02</span> MEET YOUR CREW
+      </p>
+    </div>
+
+    <div id="content">
+      <p>
+        <span
+          id="prof"
+          style="font-size: 32px; text-transform: uppercase; color: grey"
+          >Commander</span
+        ><br />
+      </p>
+
+      <span class="up" style="font-size: 56px; text-transform: uppercase"
+        >Douglas Hurley </span
+      ><br />
+      <p
+        id="content-para"
+        style="
+          font-size: 18px;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+            sans-serif;
+          color: rgba(119, 145, 160, 0.959);
+          line-height: 25px;
+        "
+      >
+        Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
+        and former NASA astronaut. He launched into space for the third time as
+        commander of Crew Dragon Demo-2.
+      </p>
+
+      <nav id="crew-nav" style="margin-top: 150px">
+        <button class="btn white-btn" id="btn1"></button
+        >&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn" id="btn2"></button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn" id="btn3"></button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn" id="btn4"></button>&nbsp;&nbsp;&nbsp;&nbsp;
+      </nav>
+    </div>
+
+    <div id="image" class="image1 fade-img">
+      <img
+        src="./assets/crew/image-douglas-hurley.png"
+        height="500px"
+        width="370px"
+      />
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(".btn").click(function () {
+        btnid = $(this).attr("id");
+        $(".btn").removeClass("white-btn");
+        $("#" + btnid).addClass("white-btn");
+
+        function content(name, description, prof, image, height, width) {
+          $(".up").text(name);
+          $("#content-para").text(description);
+          $("#prof").text(prof);
+          $("img").attr({ src: image, height: height, width: width });
+          // var s = [];
+          s = $("#image").attr("class");
+          // alert(s);
+        }
+
+        if (btnid === "btn1") {
+          content(
+            "Douglas Hurley",
+            "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot andformer NASA astronaut. He launched into space for the third time ascommander of Crew Dragon Demo-2.",
+            "Commander",
+            "./assets/crew/image-douglas-hurley.png",
+            "500px",
+            "370px"
+          );
+          $("#image").removeClass("ansari victor mark").addClass("image1");
+          $("#crew-nav").attr("style", "margin-top:150px");
+        } else if (btnid === "btn2") {
+          content(
+            "Anousheh Ansari",
+            "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space.",
+            "flight engineer",
+            "assets/crew/image-anousheh-ansari.png",
+            "400px",
+            "350px"
+          );
+          $("#image").removeClass("image1 victor mark").addClass("ansari");
+          $("#crew-nav").attr("style", "margin-top:60px");
+        } else if (btnid === "btn3") {
+          content(
+            "mark shuttleworth",
+            "Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist.",
+            "mission specialist",
+            "assets/crew/image-mark-shuttleworth.png",
+            "400px",
+            "300px"
+          );
+          $("#image").removeClass("image1 victor").addClass("ansari");
+          $("#crew-nav").attr("style", "margin-top:60px");
+        } else {
+          content(
+            "victor glover",
+            "Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer.",
+            "pilot",
+            "assets/crew/image-victor-glover.png",
+            "400px",
+            "350px"
+          );
+          $("#image").removeClass("image1 victor").addClass("ansari");
+          $("#crew-nav").attr("style", "margin-top:125px");
+        }
+      });
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>

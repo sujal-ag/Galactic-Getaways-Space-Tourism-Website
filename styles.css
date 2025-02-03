@@ -1,0 +1,34 @@
+#nav {
+  display: inline-block;
+  position: relative;
+  top: 40px;
+  left: 680px;
+  z-index: 10;
+  background: rgba(160, 159, 159, 0.244);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 30px 100px;
+}
+nav > a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 5px 10px;
+}
+
+.underline {
+  border-bottom: 3px rgba(212, 204, 204, 0.614) solid;
+}
+.anchor {
+  padding: 27px;
+}
+
+body {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1;
+}

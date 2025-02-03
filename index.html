@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Frontend Mentor | Space tourism website</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-image: url(./assets/home/background-home-desktop.jpg);
+        font-family: "Bellefair", serif;
+        background-size: cover;
+      }
+
+      p {
+        color: white;
+      }
+      #space {
+        display: block;
+        font-size: 144px;
+        margin: 20px 0px;
+      }
+      .up {
+        text-transform: uppercase;
+      }
+      #explore {
+        z-index: 10;
+        position: relative;
+        margin-top: 300px;
+        margin-right: 290px;
+        height: 200px;
+        width: 230px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        float: right;
+      }
+      #content {
+        /* height: inherit; */
+        position: relative;
+        top: 250px;
+        width: 400px;
+        /* margin-top: 250px; */
+        left: 200px;
+        float: left;
+      }
+
+      .circle-animate {
+        z-index: -10;
+        float: right;
+        position: absolute;
+        top: -53px;
+        left: -48px;
+        height: 300px;
+        width: 330px;
+        border-radius: 50%;
+        opacity: 10%;
+        background-color: white;
+        pointer-events: none;
+      }
+      #home {
+        border-bottom: 3px rgb(255, 255, 255) solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav" style="left: 300px">
+      <nav>
+        <a class="anchor" id="home"><b>00</b> Home</a>&nbsp;&nbsp;&nbsp;
+        <a id="destination" class="anchor"><b>01</b> Destination</a
+        >&nbsp;&nbsp;&nbsp;
+        <a id="crew" class="anchor"><b>02</b> Crew</a>&nbsp;&nbsp;&nbsp;
+        <a id="tech" class="anchor"><b>03</b> Technology</a>
+      </nav>
+    </div>
+
+    <div id="content">
+      <p>
+        <span class="up" style="font-size: 28px"
+          >So, you want to travel to</span
+        >
+        <span id="space" class="up">Space</span>
+        <span style="font-size: 18px"
+          >Let’s face it; if you want to go to space, you might as well
+          genuinely go to outer space and not hover kind of on the edge of it.
+          Well sit back, and relax because we’ll give you a truly out of this
+          world experience!</span
+        >
+      </p>
+    </div>
+
+    <div id="explore" type="button">
+      <div class="outer-explore"></div>
+      <p
+        style="
+          color: black;
+          text-align: center;
+          font-size: 30px;
+          position: absolute;
+          top: 55px;
+          left: 45px;
+        "
+      >
+        EXPLORE
+      </p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./index.js"></script>
+    <script>
+      $("#explore").hover(
+        function () {
+          $(".outer-explore").addClass("circle-animate");
+        },
+        function () {
+          $(".outer-explore").removeClass("circle-animate");
+        }
+      );
+
+      $("#explore").on("click", function () {
+        window.open("destination-moon.html", "_self");
+      });
+    </script>
+  </body>
+</html>
